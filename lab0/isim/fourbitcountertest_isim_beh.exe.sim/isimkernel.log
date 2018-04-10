@@ -1,0 +1,10 @@
+Command line:
+   fourbitcountertest_isim_beh.exe
+     -simmode  gui
+     -simrunnum  0
+     -socket  49904
+
+Wed Apr 04 11:21:49 2018
+
+
+ Elaboration Time: 0.0624 sec

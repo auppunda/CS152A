@@ -1,0 +1,20 @@
+Running: C:\Xilinx\14.6\ISE_DS\ISE\bin\nt64\unwrapped\fuse.exe -intstyle ise -incremental -lib unisims_ver -lib unimacro_ver -lib xilinxcorelib_ver -lib secureip -o C:/Users/TEMP.CS152A-01.000/Desktop/123/lab0/fourbitcountertest_isim_beh.exe -prj C:/Users/TEMP.CS152A-01.000/Desktop/123/lab0/fourbitcountertest_beh.prj work.fourbitcountertest work.glbl 
+ISim P.68d (signature 0x7708f090)
+Number of CPUs detected in this system: 2
+Turning on mult-threading, number of parallel sub-compilation jobs: 4 
+Determining compilation order of HDL files
+Analyzing Verilog file "C:/Users/TEMP.CS152A-01.000/Desktop/123/lab0/fourbitcounter.v" into library work
+Analyzing Verilog file "C:/Users/TEMP.CS152A-01.000/Desktop/123/lab0/fourbitcounter.v" into library work
+WARNING:HDLCompiler:687 - "C:/Users/TEMP.CS152A-01.000/Desktop/123/lab0/fourbitcounter.v" Line 21: Illegal redeclaration of module <fourbitcounter>.
+Analyzing Verilog file "C:/Users/TEMP.CS152A-01.000/Desktop/123/lab0/fourbitcountertest.v" into library work
+Analyzing Verilog file "C:/Xilinx/14.6/ISE_DS/ISE//verilog/src/glbl.v" into library work
+Starting static elaboration
+Completed static elaboration
+Compiling module fourbitcounter
+Compiling module fourbitcountertest
+Compiling module glbl
+Time Resolution for simulation is 1ps.
+Compiled 3 Verilog Units
+Built simulation executable C:/Users/TEMP.CS152A-01.000/Desktop/123/lab0/fourbitcountertest_isim_beh.exe
+Fuse Memory Usage: 27016 KB
+Fuse CPU Usage: 499 ms

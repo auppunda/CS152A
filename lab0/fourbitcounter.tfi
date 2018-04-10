@@ -1,0 +1,10 @@
+
+
+
+// Instantiate the module
+fourbitcounter instance_name (
+    .rst(rst), 
+    .clk(clk)
+    );
+
+

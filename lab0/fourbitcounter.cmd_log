@@ -1,0 +1,5 @@
+vhdtdtfi -lang verilog -prj lab0 -o C:/Users/TEMP.CS152A-01.000/Desktop/123/lab0/fourbitcounter.tfi -lib work C:/Users/TEMP.CS152A-01.000/Desktop/123/lab0//fourbitcounter.v -module fourbitcounter -template C:/Xilinx/14.6/ISE_DS/ISE//data/tfi.tft -deleteonerror 
+xst -intstyle ise -ifn "C:/Users/TEMP.CS152A-01.000/Desktop/123/lab0/fourbitcounter.xst" -ofn "C:/Users/TEMP.CS152A-01.000/Desktop/123/lab0/fourbitcounter.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc C:/Users/TEMP.CS152A-01.000/Downloads/src/combinational_gates/combinational_gates_muxed.ucf -p xc6slx16-csg324-3 fourbitcounter.ngc fourbitcounter.ngd  
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc C:/Users/TEMP.CS152A-01.000/Downloads/src/Nexys3.ucf -p xc6slx16-csg324-3 fourbitcounter.ngc fourbitcounter.ngd  
+map -intstyle ise -p xc6slx16-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o fourbitcounter_map.ncd fourbitcounter.ngd fourbitcounter.pcf 
