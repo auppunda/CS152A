@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -lib "secureip" -o "C:/Users/TEMP.CS152A-01.000/Desktop/project/lab1/signitest_isim_beh.exe" -prj "C:/Users/TEMP.CS152A-01.000/Desktop/project/lab1/signitest_beh.prj" "work.signitest" "work.glbl" 

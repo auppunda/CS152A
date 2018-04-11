@@ -1,0 +1,28 @@
+Command line:
+   signitest_isim_beh.exe
+     -simmode  gui
+     -simrunnum  0
+     -socket  49461
+
+Wed Apr 11 11:26:05 2018
+
+
+ Elaboration Time: 0.0624 sec
+
+ Current Memory Usage: 829.247 Meg
+
+ Total Signals          : 21
+ Total Nets             : 61
+ Total Signal Drivers   : 12
+ Total Blocks           : 4
+ Total Primitive Blocks : 2
+ Total Processes        : 17
+ Total Traceable Variables  : 25
+ Total Scalar Nets and Variables : 181
+
+ Total Simulation Time: 0.078 sec
+
+ Current Memory Usage: 829.247 Meg
+
+Wed Apr 11 11:26:14 2018
+
