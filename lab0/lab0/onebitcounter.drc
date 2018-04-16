@@ -1,8 +1,0 @@
-Release 14.6 Drc P.68d (nt64)
-Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
-
-Mon Apr 09 11:31:37 2018
-
-drc -z onebitcounter.ncd onebitcounter.pcf
-
-DRC detected 0 errors and 0 warnings.
