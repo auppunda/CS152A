@@ -18,16 +18,22 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module signi( in, significand, exponent, sign);
+module signi( in, significand, exponent, sign, fifthbit);
 
 input wire [11:0] in;
 output reg [3:0] significand;
 output reg [2:0] exponent;
+reg [3:0] significand1;
+reg [2:0] exponent1;
 output reg sign;
+output reg fifthbit;
 reg [11:0] negation;
 wire [3:0] out;
-wire [3:0] outprime;
 reg [3:0] pipe;
+wire [3:0] F;
+wire [2:0] E;
+reg [3:0] sig;
+reg [2:0] ex;
 
 
 always @(*) begin
@@ -39,46 +45,85 @@ always @(*) begin
 
 end
 	
-priority_encoder encoder( .a(negation), .b(out));
+priority_encoder encoder( .a(negation), .b(out) );
 always @(*) begin
 	pipe = 12 - out;
 	if (pipe == 1) begin
-		significand = negation[10:7];
-		exponent = 7;
+		significand1 = negation[10:7];
+		fifthbit = negation[6];
+		exponent1 = 7;
 	end
 	else if (pipe == 2) begin
-		significand = negation[9:6];
-		exponent = 6;
+		significand1 = negation[9:6];
+		fifthbit = negation[5];
+		exponent1 = 6;
 	end
 	else if(pipe == 3) begin
-		significand = negation[8:5];
-		exponent = 5;
+		significand1 = negation[8:5];
+		fifthbit = negation[4];
+		exponent1 = 5;
 	end
 	else if(pipe == 4) begin
-		significand = negation[7:4];
-		exponent = 4;
+		significand1 = negation[7:4];
+		fifthbit = negation[3];
+		exponent1 = 4;
 	end
 	else if(pipe == 5) begin
-		significand = negation[6:3];
-		exponent = 3;
+		significand1 = negation[6:3];
+		fifthbit = negation[2];
+		exponent1 = 3;
 	end
 	else if(pipe == 6) begin
-		significand = negation[5:2];
-		exponent = 2;
+		significand1 = negation[5:2];
+		fifthbit = negation[1];
+		exponent1 = 2;
 	end
 	else if(pipe == 7) begin
-		significand = negation[4:1];
-		exponent = 1;
+		significand1 = negation[4:1];
+		fifthbit = negation[0];
+		exponent1 = 1;
 	end
 	else 
-		exponent = 0;
+		exponent1 = 0;
 	
-	if(pipe >= 8) 
-		significand = in[4:0];
+	if(pipe >= 8) begin
+		significand1 = in[3:0];
+		fifthbit = 0;
+	end
+	sig = significand1;
+	ex = exponent1;
+end
+
+rounding round( .f(sig), .e(ex), .fifthbit(fifthbit), .F(F), .E(E));
+
+reg [3:0] v;
+
+always @(*) begin
+	exponent = E;
+	significand = F;
 end
 
 endmodule
 
+module rounding ( input wire [3:0] f, input wire [2:0] e, input wire fifthbit, output reg [3:0] F, output reg [2:0] E);
+	reg [3:0] v;
+	always @* begin
+		//E = e;
+		//F = f;
+		if(fifthbit) 
+			v = f + 4'b0001;
+		else 
+			v = f;
+		if(fifthbit && f == 4'b0000) begin
+			E = e + 3'b001;
+			F = v >> 1;
+		end
+		else begin
+			E = e;
+			F = v;
+		end
+	end
+endmodule
 
 module priority_encoder ( input wire [11:0] a , output reg [3:0] b);
 	always @* begin
@@ -110,3 +155,4 @@ module priority_encoder ( input wire [11:0] a , output reg [3:0] b);
 			b = 4'b0000;
 	end
 endmodule
+
