@@ -18,7 +18,7 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module signi( in, significand, exponent, sign, fifthbit);
+module signi( in, significand, exponent, sign);
 
 input wire [11:0] in;
 output reg [3:0] significand;
@@ -26,7 +26,7 @@ output reg [2:0] exponent;
 reg [3:0] significand1;
 reg [2:0] exponent1;
 output reg sign;
-output reg fifthbit;
+reg fifthbit;
 reg [11:0] negation;
 wire [3:0] out;
 reg [3:0] pipe;

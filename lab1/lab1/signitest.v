@@ -30,7 +30,6 @@ module signitest;
 	// Outputs
 	wire [3:0] significand;
 	wire [2:0] exponent;
-	wire fifthbit;
 	wire sign;
 
 	// Instantiate the Unit Under Test (UUT)
