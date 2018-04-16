@@ -4,10 +4,10 @@
 // Company: 
 // Engineer:
 //
-// Create Date:   10:33:15 04/11/2018
+// Create Date:   10:20:03 04/16/2018
 // Design Name:   signi
-// Module Name:   C:/Users/TEMP.CS152A-01.000/Desktop/project/lab1/signitest.v
-// Project Name:  lab1
+// Module Name:   C:/Users/TEMP.CS152A-01.000/Desktop/CS152A-master/lab1_2.0/signitest.v
+// Project Name:  lab1_2.0
 // Target Device:  
 // Tool versions:  
 // Description: 
@@ -33,16 +33,16 @@ module signitest;
 	wire sign;
 
 	// Instantiate the Unit Under Test (UUT)
-	signi uut (
-		.in(in), 
-		.significand(significand), 
-		.exponent(exponent), 
-		.sign(sign),
+	FPCVT uut (
+		.D(in), 
+		.S(sign), 
+		.E(exponent), 
+		.F(significand)
 	);
 
 	initial begin
 		// Initialize Inputs
-		in = 12'b100000000001;
+		in = 12'b100000000000;
 
 		// Wait 100 ns for global reset to finish
 		#100;
