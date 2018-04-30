@@ -2,7 +2,7 @@ module seq (/*AUTOARG*/
    // Outputs
    o_tx_data, o_tx_valid,
    // Inputs
-   i_tx_busy, i_inst, i_inst_valid, clk, rst
+   i_tx_busy, i_inst, i_inst_valid, clk, rst, send
    );
 
 `include "seq_definitions.v"
@@ -18,6 +18,7 @@ module seq (/*AUTOARG*/
 
    input                     clk;
    input                     rst;
+	input [1:0]					  send;
 
    /*AUTOWIRE*/
    // Beginning of automatic wires (for undeclared instantiated-module outputs)
@@ -48,7 +49,7 @@ module seq (/*AUTOARG*/
    // ===========================================================================
 
    assign inst_const = i_inst[seq_im_width-1:0];
-   assign inst_op    = i_inst[seq_in_width-1:seq_in_width-seq_op_width];
+   assign inst_op    = i_inst[seq_in_width-1:seq_in_width-seq_op_width] | send + send;
    assign inst_rc    = i_inst[seq_rn_width*1-1:seq_rn_width*0];
    assign inst_rb    = i_inst[seq_rn_width*2-1:seq_rn_width*1];
    assign inst_ra    = i_inst[seq_rn_width*3-1:seq_rn_width*2];
