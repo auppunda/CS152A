@@ -7,4 +7,4 @@ lab0: fourbitcounter, flashing led
 
 lab1: Floating Point Conversion, 12 to 8 bit, compression
 
-lab2: working with UART and putty
+lab2: working with UART and putty, created a sequencer to add, multiply, push, and send registers with the hardware
