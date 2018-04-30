@@ -87,10 +87,12 @@ module nexys3 (/*AUTOARG*/
      if (rst)
        begin
           step_d[2:0]  <= 0;
+	       step_d_send[2:0] <= 0;
        end
      else if (clk_en) // Down sampling
        begin
           step_d[2:0]  <= {btnS, step_d[2:1]};
+	       step_d_send[2:0] <= {btnSend, step_d_send[2:1]};
        end
 	   
 	
