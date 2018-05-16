@@ -50,43 +50,26 @@ module clockDividers(clk, rst, clk_1, seg_clk, blink_clk
 			one <= 0;
 			clk_1_prime <= ~clk_1_prime;
 		end
-		else begin
-			one <= one + 1;
-			clk_1_prime <= clk_1_prime;
-		end
-	end
-	
-	always @(posedge(clk) or posedge(rst)) begin
-		if(rst)
-		begin 
-			one <= 0;
-			clk_seg_prime <= 1'b0;
-		end
 		else if(seg == SEG_DIV - 1) begin
 			seg <= 0;
 			clk_seg_prime <= ~clk_seg_prime;
 		end
-		else begin
-			seg <= seg + 1;
-			clk_seg_prime <= clk_seg_prime;
-		end
-	end
-	
-	always @(posedge(clk) or posedge(rst)) begin
-		if(rst)
-		begin 
-			blink <= 0;
-			clk_blink_prime <= 1'b0;
-		end
-		else if(seg == BLINK_DIV - 1) begin
+		else if(blink== BLINK_DIV - 1) begin
 			blink <= 0;
 			clk_blink_prime <= ~clk_blink_prime;
 		end
 		else begin
+			one <= one + 1;
+			clk_1_prime <= clk_1_prime;
+			seg <= seg + 1;
+			clk_seg_prime <= clk_seg_prime;
 			blink <= blink + 1;
 			clk_blink_prime <= clk_blink_prime;
 		end
 	end
 	
 	
+	assign seg_clk = clk_seg_prime;
+	assign blink_clk = clk_blink_prime;
+	assign clk_1 = clk_1_prime;
 endmodule
