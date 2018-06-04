@@ -114,14 +114,14 @@ reg [3:0] iter2;
 always@ (*) begin
     for(iter2 = 0; iter2 < 12; iter2 = iter2 + 1) begin
         if(spawn_state == iter2) begin
-            blocks[iter2*4] = $urandom % (hbp - hfp);
-            blocks[iter2*4 + 1] = $urandom % (hbp - hfp);
-            blocks[iter2*4 + 2] = $urandom % (hbp - hfp);
-            blocks[iter2*4 + 3] = $urandom % (hbp - hfp);
-            colors[iter2*4] = $urandom % (6);
-            colors[iter2*4 + 1] = $urandom % (6);
-            colors[iter2*4 + 2] = $urandom % (6);
-            colors[iter2*4 + 3] = $urandom % (6);
+            blocks[iter2*4] = iter2*1*32 % (hbp - hfp);
+            blocks[iter2*4 + 1] = iter2*2*32 % (hbp - hfp);
+            blocks[iter2*4 + 2] = iter2*3*32 % (hbp - hfp);
+            blocks[iter2*4 + 3] = iter2*4*32 % (hbp - hfp);
+            colors[iter2*4] = 2 % (6);
+            colors[iter2*4 + 1] = 3 % (6);
+            colors[iter2*4 + 2] = 5 % (6);
+            colors[iter2*4 + 3] = 4 % (6);
         end
     end
 end
@@ -387,3 +387,34 @@ begin
 end
 
 endmodule
+
+module lfsr    (
+out             ,  // Output of the counter
+enable          ,  // Enable  for counter
+clk             ,  // clock input
+reset              // reset input
+);
+
+//----------Output Ports--------------
+output [7:0] out;
+//------------Input Ports--------------
+input [7:0] data;
+input enable, clk, reset;
+//------------Internal Variables--------
+reg [7:0] out;
+wire        linear_feedback;
+
+//-------------Code Starts Here-------
+assign linear_feedback = !(out[7] ^ out[3]);
+
+always @(posedge clk)
+if (reset) begin // active high reset
+out <= 8'b0 ;
+end else if (enable) begin
+out <= {out[6],out[5],
+    out[4],out[3],
+    out[2],out[1],
+    out[0], linear_feedback};
+end
+
+endmodule // End Of Module counter

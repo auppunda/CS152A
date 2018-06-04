@@ -60,10 +60,11 @@ input wire clk, clr;
 output wire [31:0] counter;
 	
 localparam GAME_DIV = 1000000;
+localparam counter_max = 240
 reg [31:0] gameCount;
 reg tempgameclk;
 
-reg [31:0] tempcounter=0;
+reg [255:0] tempcounter=0;
 
 always @(posedge clk or posedge clr) 
 begin
