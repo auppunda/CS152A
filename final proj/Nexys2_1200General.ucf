@@ -3,7 +3,7 @@
 ## - remove or comment the lines corresponding to unused pins
 ## - rename the used signals according to the project
 
-## Signals Led<7>…Led<4> are assigned to pins which change type from s3e500 to other dies using the same package
+## Signals Led<7>â€¦Led<4> are assigned to pins which change type from s3e500 to other dies using the same package
 ## Both versions are provided in this file.
 ## Keep only the appropriate one, and remove or comment the other one.
 
@@ -128,7 +128,7 @@ NET "seg<3>"         LOC = "U18" | IOSTANDARD = "LVCMOS33";   #Bank = 1, Pin nam
 NET "seg<4>"         LOC = "M14" | IOSTANDARD = "LVCMOS33";   #Bank = 1, Pin name = IO_L53P,                           Sch name = CE
 NET "seg<5>"         LOC = "N14" | IOSTANDARD = "LVCMOS33";   #Bank = 1, Pin name = IO_L53N_VREF,                      Sch name = CF
 NET "seg<6>"         LOC = "L14" | IOSTANDARD = "LVCMOS33";   #Bank = 1, Pin name = IO_L61P,                           Sch name = CG
-NET "dp"         LOC = "M13" | IOSTANDARD = "LVCMOS33";   #Bank = 1, Pin name = IO_L61N,                           Sch name = DP
+NET "seg<7>"         LOC = "M13" | IOSTANDARD = "LVCMOS33";   #Bank = 1, Pin name = IO_L61N,                           Sch name = DP
 
 NET "an<0>"          LOC = "N16" | IOSTANDARD = "LVCMOS33";   #Bank = 1, Pin name = IO_L50N_M1UDQSN,                   Sch name = AN0
 NET "an<1>"          LOC = "N15" | IOSTANDARD = "LVCMOS33";   #Bank = 1, Pin name = IO_L50P_M1UDQS,                    Sch name = AN1
