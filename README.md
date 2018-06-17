@@ -11,3 +11,5 @@ lab2: working with UART and putty, created a sequencer to add, multiply, push, a
 
 lab3: got seven segment display to work as a stopwatch, had an adjust mode for normal counting and adjusting. Used
 buttons 
+
+final proj: cube runner game with Nexys hardware
